@@ -22,35 +22,51 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'industry-demo' ); ?></a>
 
-	<header id="masthead" class="site-header">
-		<div class="site-branding">
-			<?php
-			the_custom_logo();
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
-
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
-
-		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'industry-demo' ); ?></button>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-			?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
+	<header class="site-header">
+		<div class="header-top-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="site-branding">
+							<?php
+							the_custom_logo();
+							if ( is_front_page() && is_home() ) : ?>
+								<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+							<?php else : ?>
+								<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+							<?php
+							endif;
+							?>
+						</div><!-- .site-branding -->
+					</div>
+					<div class="col-md-8">
+						<div class="header-right-btn">
+							<a href="">Featured in New York Times, Forbes & Mashable</a>
+							<a href="">25 years of industrial experiences</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="header-bottom-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-8">
+						<?php
+							wp_nav_menu( array(
+								'theme_location' => 'menu-1',
+								'menu_id'        => 'primary-menu',
+							) );
+						?>
+					</div>
+					<div class="col-md-4">
+						<div class="header-search-form">
+							<?php get_search_form(); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
 	<div id="content" class="site-content">

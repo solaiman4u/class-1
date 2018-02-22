@@ -14,16 +14,33 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer">
+		<?php if(is_active_sidebar('footer')) : ?>
+			<div class="footer-top-area">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<?php dynamic_sidebar('footer'); ?>
+						</div>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'industry-demo' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'industry-demo' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'industry-demo' ), 'industry-demo', '<a href="http://solayman.me">solaiman</a>' );
-			?>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'industry-demo' ) ); ?>"><?php
+							/* translators: %s: CMS name, i.e. WordPress. */
+							printf( esc_html__( 'Proudly powered by %s', 'industry-demo' ), 'WordPress' );
+						?></a>
+						<span class="sep"> | </span>
+						<?php
+							/* translators: 1: Theme name, 2: Theme author. */
+							printf( esc_html__( 'Theme: %1$s by %2$s.', 'industry-demo' ), 'industry-demo', '<a href="http://solayman.me">solaiman</a>' );
+						?>
+					</div>
+				</div>
+			</div>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->
 </div><!-- #page -->

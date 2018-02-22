@@ -94,6 +94,16 @@ function industry_demo_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Footer Widget', 'industry-demo' ),
+		'id'            => 'footer',
+		'description'   => esc_html__( 'Add footer widgets here.', 'industry-demo' ),
+		'before_widget' => '<div id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'industry_demo_widgets_init' );
 
@@ -107,6 +117,7 @@ function industry_demo_scripts() {
 	wp_enqueue_style( 'industry-default-style', get_template_directory_uri().'/assets/css/default.css', array(), '1.0', 'all' );
 	wp_enqueue_style( 'industry-demo-style', get_stylesheet_uri() );
 
+	wp_enqueue_script('jquery');
 	wp_enqueue_script( 'bootstrap', get_template_directory_uri().'/assets/js/bootstrap.min.js', array(), '3.3.7', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
